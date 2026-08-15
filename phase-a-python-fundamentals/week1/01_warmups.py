@@ -48,12 +48,23 @@ def fizzbuzz(n):
     """Return 'Fizz' if n divisible by 3, 'Buzz' if divisible by 5,
     'FizzBuzz' if divisible by both, otherwise the number as a string.
     Example: fizzbuzz(15) -> 'FizzBuzz', fizzbuzz(4) -> '4'."""
+    result = ''
+    if n % 3 == 0:
+        result += 'Fizz'
+    if n % 5 == 0:
+        result += 'Buzz'
+    return result or str(n)
     raise NotImplementedError
 
 
 def reverse_string(s):
     """Return the string s reversed. Example: reverse_string('abc') -> 'cba'.
     Try it with a loop before reaching for slicing."""
+    result = ''
+    for char in s:
+        result = char + result
+    return result
+    # return s[::-1]
     raise NotImplementedError
 
 
