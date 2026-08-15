@@ -10,9 +10,14 @@ AI off. Write it yourself.
 from _check import run
 
 
-def second_largest(nums):
+def second_largest(nums: list):
     """Return the second largest DISTINCT value in the list `nums`.
     Example: second_largest([4, 1, 7, 7, 3]) -> 4."""
+    # l = list(set(nums)) # 
+    # l.sort() # sort is a list method, and inplace as it returns none, so used like this
+    # return l[-2]
+    l = sorted(set(nums))[-2] # sorted is a built in function on any iterable, inc strings, generates a new iterable
+    return l
     raise NotImplementedError
 
 
