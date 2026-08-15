@@ -13,23 +13,34 @@ from _check import run
 def add_one(n):
     """Return n plus 1."""
     # TODO: replace this
+    return n+1
     raise NotImplementedError
 
 
 def is_even(n):
     """Return True if n is even, else False."""
+    if n%2==0:
+        return True
+    return False
     raise NotImplementedError
 
 
 def sum_to(n):
     """Return the sum of all integers from 1 to n inclusive.
     Example: sum_to(5) -> 15. Use a loop, not the formula."""
+    c = 1
+    total = 0
+    while c <= n:
+        total = total + c
+        c = c + 1
+    return total
     raise NotImplementedError
 
 
 def count_vowels(word):
     """Return the number of vowels (a, e, i, o, u) in the lowercase string `word`.
     Example: count_vowels('banana') -> 3."""
+    return sum(1 for letter in word if letter in 'aeiou')
     raise NotImplementedError
 
 
