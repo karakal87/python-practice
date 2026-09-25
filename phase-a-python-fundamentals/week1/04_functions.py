@@ -13,30 +13,43 @@ from _check import run
 def greet(name, greeting="Hello"):
     """Return '<greeting>, <name>!'. greeting defaults to 'Hello'.
     Example: greet('Tom') -> 'Hello, Tom!', greet('Tom', 'Hi') -> 'Hi, Tom!'."""
+    return f'{greeting}, {name}!'
     raise NotImplementedError
 
 
 def total(*nums):
     """Return the sum of any number of positional arguments.
     Example: total(1, 2, 3) -> 6, total() -> 0."""
+    return sum(nums)
     raise NotImplementedError
 
 
 def apply_twice(func, x):
     """Apply the function `func` to x, twice, and return the result.
     Example: apply_twice(lambda v: v + 1, 5) -> 7."""
+    return func(func(x))
     raise NotImplementedError
 
 
 def running_totals(nums):
     """Return a list of running (cumulative) totals.
     Example: running_totals([1, 2, 3]) -> [1, 3, 6]."""
+    # totals = []
+    # running_total = 0
+    # for num in nums:
+    #     running_total += num
+    #     totals.append(running_total)
+    # return totals
+    # return [sum(nums[:i+1]) for i in range(len(nums))]
+    from itertools import accumulate
+    return list(accumulate(nums))
     raise NotImplementedError
 
 
 def make_multiplier(factor):
     """Return a FUNCTION that multiplies its argument by `factor` (a closure).
     Example: triple = make_multiplier(3); triple(5) -> 15."""
+    return lambda x: factor*x
     raise NotImplementedError
 
 

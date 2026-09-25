@@ -14,30 +14,42 @@ from _check import run
 def squares(n):
     """Return a list of squares of 0..n-1.
     Example: squares(4) -> [0, 1, 4, 9]."""
+    return [num*num for num in range(4)]
     raise NotImplementedError
 
 
 def evens(nums):
     """Return a list of only the even numbers in `nums`, order preserved.
     Example: evens([1, 2, 3, 4, 6]) -> [2, 4, 6]."""
+    return [n for n in nums if n%2==0]
     raise NotImplementedError
 
 
 def lengths(words):
     """Return a dict mapping each word to its length.
     Example: lengths(['a', 'bb']) -> {'a': 1, 'bb': 2}."""
+    return {name: len(name) for name in words}
     raise NotImplementedError
 
 
 def unique_first_letters(words):
     """Return a set of the first letters of each word.
     Example: unique_first_letters(['apple', 'avocado', 'banana']) -> {'a', 'b'}."""
+    return {word[0] for word in words}
     raise NotImplementedError
 
 
 def flatten(matrix):
     """Return a flat list of all values in a list of lists.
     Example: flatten([[1, 2], [3, 4]]) -> [1, 2, 3, 4]."""
+    # The order matches nested loops: first visit each inner list in matrix,
+    # then visit each value in that inner list and add it to the result.
+    # Equivalent to:
+    # result = []
+    # for innerlist in matrix:
+    #     for num in innerlist:
+    #         result.append(num)
+    return [num for innerlist in matrix for num in innerlist]
     raise NotImplementedError
 
 
