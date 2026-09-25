@@ -17,7 +17,7 @@ def greet(name, greeting="Hello"):
     raise NotImplementedError
 
 
-def total(*nums):
+def total(*nums): # nums is a TUPLE of all the positional arguments
     """Return the sum of any number of positional arguments.
     Example: total(1, 2, 3) -> 6, total() -> 0."""
     return sum(nums)
