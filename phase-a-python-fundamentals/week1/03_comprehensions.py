@@ -14,6 +14,11 @@ from _check import run
 def squares(n):
     """Return a list of squares of 0..n-1.
     Example: squares(4) -> [0, 1, 4, 9]."""
+    # [review] BUG the test didn't catch: this hardcodes range(4), so it ignores n.
+    #          squares(3) would wrongly return [0, 1, 4, 9]. Use range(n):
+    #              return [num * num for num in range(n)]
+    #          (Interviews love this: a hidden test case with a different input
+    #           exposes exactly this kind of hardcoding.)
     return [num*num for num in range(4)]
     raise NotImplementedError
 

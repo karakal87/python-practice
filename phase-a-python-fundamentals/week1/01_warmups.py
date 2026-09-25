@@ -19,6 +19,9 @@ def add_one(n):
 
 def is_even(n):
     """Return True if n is even, else False."""
+    # [review] the if -> return True / return False can collapse to one line, since
+    #          n % 2 == 0 is already a bool:
+    #              return n % 2 == 0
     if n%2==0:
         return True
     return False
@@ -28,6 +31,11 @@ def is_even(n):
 def sum_to(n):
     """Return the sum of all integers from 1 to n inclusive.
     Example: sum_to(5) -> 15. Use a loop, not the formula."""
+    # [review] correct. A for-loop over range is the more idiomatic loop here
+    #          (no manual counter to increment or get wrong):
+    #              total = 0
+    #              for c in range(1, n + 1):
+    #                  total += c
     c = 1
     total = 0
     while c <= n:
@@ -48,6 +56,9 @@ def fizzbuzz(n):
     """Return 'Fizz' if n divisible by 3, 'Buzz' if divisible by 5,
     'FizzBuzz' if divisible by both, otherwise the number as a string.
     Example: fizzbuzz(15) -> 'FizzBuzz', fizzbuzz(4) -> '4'."""
+    # [review] nicely done — appending then `result or str(n)` sidesteps the classic
+    #          fizzbuzz trap of forgetting to handle 15 before 3 and 5. This is the
+    #          cleaner pattern than a 4-branch if/elif chain.
     result = ''
     if n % 3 == 0:
         result += 'Fizz'

@@ -32,10 +32,15 @@ You'll see something like:
 
 Keep going until every problem in a file passes. Then move to the next file.
 
+Some files have `# [review]` comments in them — brief notes on a more idiomatic or
+efficient approach where one exists, added after a pass through the solved code.
+Your own solution isn't wrong if it passes; these are just worth knowing for interviews.
+
 ## The routine
 
 - **~15 min**: one new practice problem set (the files below), AI off.
 - **~15 min**: one timed HackerRank or LeetCode *Easy* problem, AI off, clock running.
+  See `timed-practice/README.md` for the problem list and how to log attempts.
 
 Thirty minutes a day, every day, beats three hours once a week. Consistency is the strategy.
 
@@ -49,10 +54,14 @@ solution, understand it, close it, then re-solve from scratch. Don't copy.
 
 Tick these off as each file goes fully green:
 
-- [ ] week1/01_warmups.py
-- [ ] week1/02_data_structures.py
-- [ ] week1/03_comprehensions.py
-- [ ] week1/04_functions.py
+- [x] week1/01_warmups.py
+- [x] week1/02_data_structures.py
+- [x] week1/03_comprehensions.py
+- [x] week1/04_functions.py
+- [ ] week2/01_strings.py
+- [ ] week2/02_recursion.py
+- [ ] week2/03_searching_sorting.py
+- [ ] week2/04_exceptions_oop.py
 
 ## Pushing this to your own GitHub
 

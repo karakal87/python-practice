@@ -25,6 +25,10 @@ def count_words(sentence):
     """Return a dict mapping each word to how many times it appears.
     Words are separated by single spaces, all lowercase.
     Example: count_words('a b a') -> {'a': 2, 'b': 1}."""
+    # [review] correct and clear. Two idiomatic shortcuts worth knowing:
+    #            word_count[word] = word_count.get(word, 0) + 1   # replaces the if/else
+    #          or, for the whole function:
+    #            from collections import Counter; return dict(Counter(sentence.split()))
     words:list = sentence.split()
     word_count:dict = {}
     for word in words:
@@ -46,6 +50,9 @@ def unique_sorted(nums):
 def common_elements(a, b):
     """Return a sorted list of values that appear in BOTH lists a and b.
     Example: common_elements([1, 2, 3], [2, 3, 4]) -> [2, 3]."""
+    # [review] correct, but `num in b` scans list b each time -> O(len(a)*len(b)).
+    #          Convert to sets and intersect: O(1) membership, O(len(a)+len(b)) overall:
+    #              return sorted(set(a) & set(b))
     return sorted(set((num for num in a if num in b)))
     raise NotImplementedError
 

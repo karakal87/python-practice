@@ -34,6 +34,11 @@ def apply_twice(func, x):
 def running_totals(nums):
     """Return a list of running (cumulative) totals.
     Example: running_totals([1, 2, 3]) -> [1, 3, 6]."""
+    # [review] accumulate is the idiomatic, O(n) answer — good find. For contrast:
+    #          the commented `sum(nums[:i+1])` version is O(n^2), because each slice
+    #          re-scans from the start every iteration. Your manual-loop version
+    #          (also commented) is O(n) too and perfectly good in an interview if you
+    #          can't recall accumulate on the spot.
     # totals = []
     # running_total = 0
     # for num in nums:
@@ -49,6 +54,11 @@ def running_totals(nums):
 def make_multiplier(factor):
     """Return a FUNCTION that multiplies its argument by `factor` (a closure).
     Example: triple = make_multiplier(3); triple(5) -> 15."""
+    # [review] fine. A named inner function is a common alternative and shows a real
+    #          name in tracebacks instead of "<lambda>" (minor, helps debugging):
+    #              def multiply(x):
+    #                  return factor * x
+    #              return multiply
     return lambda x: factor*x
     raise NotImplementedError
 
