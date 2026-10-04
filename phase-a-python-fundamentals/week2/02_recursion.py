@@ -17,12 +17,21 @@ def factorial(n):
     Example: factorial(5) -> 120.
     Think about the base case first: what's the smallest n you can answer
     without recursing?"""
+    if n == 0:
+        return 1
+    result = n * factorial(n - 1)
+    return result
     raise NotImplementedError
 
 
 def fibonacci(n):
     """Return the nth Fibonacci number (0-indexed: fib(0)=0, fib(1)=1), recursively.
     Example: fibonacci(6) -> 8."""
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fibonacci(n - 1) + fibonacci(n - 2)
     raise NotImplementedError
 
 
