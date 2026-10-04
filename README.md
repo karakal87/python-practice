@@ -58,10 +58,14 @@ Tick these off as each file goes fully green:
 - [x] week1/02_data_structures.py
 - [x] week1/03_comprehensions.py
 - [x] week1/04_functions.py
-- [ ] week2/01_strings.py
-- [ ] week2/02_recursion.py
-- [ ] week2/03_searching_sorting.py
-- [ ] week2/04_exceptions_oop.py
+- [x] week2/01_strings.py
+- [x] week2/02_recursion.py
+- [x] week2/03_searching_sorting.py
+- [x] week2/04_exceptions_oop.py
+- [ ] week3/01_collections.py
+- [ ] week3/02_sorting_and_builtins.py
+- [ ] week3/03_generators_iterators.py
+- [ ] week3/04_oop_deeper.py
 
 ## Pushing this to your own GitHub
 
