@@ -14,6 +14,10 @@ def linear_search(nums, target):
     """Return the index of the first occurrence of target in nums, or -1.
     Use a plain loop — this is O(n) and that's fine, it's the baseline.
     Example: linear_search([4, 2, 7, 2], 2) -> 1."""
+    for i in range(0,len(nums)):
+        if nums[i] == target: return i
+        elif i == len(nums)-1: return -1
+        else: i += i
     raise NotImplementedError
 
 
@@ -22,12 +26,20 @@ def bubble_sort(nums):
     sort (repeatedly swap adjacent out-of-order pairs). Don't use sorted()
     or .sort() here — the point is to know how a sort actually works.
     Example: bubble_sort([5, 1, 4, 2, 3]) -> [1, 2, 3, 4, 5]."""
-    raise NotImplementedError
+    result = nums.copy()
+    for pass_index in range(len(result)):
+        for i in range(len(result) - 1 - pass_index):
+            if result[i] > result[i + 1]:
+                result[i], result[i + 1] = result[i + 1], result[i]
+    return result
 
 
 def find_duplicates(nums):
     """Return a sorted list of values that appear more than once in nums.
     Example: find_duplicates([1, 2, 2, 3, 3, 3, 4]) -> [2, 3]."""
+    from collections import Counter
+    c = Counter(nums)
+    return sorted([num for num, count in c.items() if count > 1])
     raise NotImplementedError
 
 
@@ -37,7 +49,13 @@ def two_sum(nums, target):
     Example: two_sum([2, 7, 11, 15], 9) -> (0, 1).
     This is one of the most-asked interview questions there is — aim for
     O(n) using a dict of value -> index, not the O(n^2) double loop."""
-    raise NotImplementedError
+    seen = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return (seen[complement], i)
+        seen[num] = i
+    return None
 
 
 def kth_largest(nums, k):

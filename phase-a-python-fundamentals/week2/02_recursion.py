@@ -39,6 +39,9 @@ def sum_digits(n):
     """Return the sum of the digits of non-negative integer n, recursively.
     Example: sum_digits(1234) -> 10.
     Hint: n % 10 gives the last digit, n // 10 drops it."""
+    if n == 0: return 0
+    else:
+        return (n % 10) + sum_digits(n//10)
     raise NotImplementedError
 
 
@@ -46,6 +49,10 @@ def reverse_list(items):
     """Return a new list with items in reverse order, recursively (no slicing,
     no built-in reverse — recurse on the rest of the list).
     Example: reverse_list([1, 2, 3]) -> [3, 2, 1]."""
+    if len(items) == 0: 
+        return []
+    rest = [items[i] for i in range(1,len(items))]
+    return reverse_list(rest) + [items[0]]
     raise NotImplementedError
 
 
@@ -55,6 +62,19 @@ def binary_search(sorted_nums, target):
     Example: binary_search([1, 3, 5, 7, 9], 7) -> 3.
     binary_search([1, 3, 5, 7, 9], 4) -> -1.
     This is the classic interview warm-up: know it cold."""
+    def helper(left, right):
+        if left > right:
+            return -1
+        mid = (left + right) // 2
+        if sorted_nums[mid] == target:
+            return mid
+        elif sorted_nums[mid] < target:
+            return helper(mid + 1, right)
+        else:
+            return helper(left, mid - 1)
+
+    return helper(0, len(sorted_nums) - 1)
+
     raise NotImplementedError
 
 
