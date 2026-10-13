@@ -7,6 +7,8 @@ Fill in each function body. Run this file to check your work:
 AI off. Write it yourself.
 """
 
+import heapq
+
 from _check import run
 
 
@@ -32,6 +34,7 @@ def bubble_sort(nums):
             if result[i] > result[i + 1]:
                 result[i], result[i + 1] = result[i + 1], result[i]
     return result
+    raise NotImplementedError
 
 
 def find_duplicates(nums):
@@ -56,11 +59,21 @@ def two_sum(nums, target):
             return (seen[complement], i)
         seen[num] = i
     return None
+    raise NotImplementedError
 
 
 def kth_largest(nums, k):
     """Return the kth largest value in nums (k=1 means the largest).
+    Keep a min-heap of the k largest values seen.
     Example: kth_largest([3, 1, 4, 1, 5, 9], 2) -> 5."""
+    # return sorted(nums, reverse=True)[k-1]
+    largest = []
+    for n in nums:
+        heapq.heappush(largest, n)
+        if len(largest) > k:
+            heapq.heappop(largest)
+
+    return largest[0]
     raise NotImplementedError
 
 

@@ -14,6 +14,10 @@ def safe_divide(a, b):
     """Return a / b. If b is 0, catch the ZeroDivisionError and return None
     instead of letting it crash. Use try/except.
     Example: safe_divide(10, 2) -> 5.0, safe_divide(10, 0) -> None."""
+    try:
+        return a / b
+    except ZeroDivisionError: 
+        return None
     raise NotImplementedError
 
 
@@ -21,6 +25,10 @@ def parse_int_or_default(s, default=0):
     """Try to convert s to an int and return it. If s can't be converted
     (raises ValueError), return `default` instead.
     Example: parse_int_or_default('42') -> 42, parse_int_or_default('abc') -> 0."""
+    try:
+        return int(s)
+    except ValueError:
+        return default
     raise NotImplementedError
 
 
@@ -34,16 +42,30 @@ class BankAccount:
     """
 
     def __init__(self, starting_balance=0):
-        raise NotImplementedError
+        if starting_balance < 0:
+            raise ValueError("Starting balance must be 0 or positive.")
+        self._balance = starting_balance
+        #raise NotImplementedError
+
+    @staticmethod
+    def _validate_amount(amount):
+        if amount <= 0:
+            raise ValueError("Needs to be positive.")
 
     def deposit(self, amount):
-        raise NotImplementedError
+        self._validate_amount(amount)
+        self._balance += amount
+
 
     def withdraw(self, amount):
-        raise NotImplementedError
+        self._validate_amount(amount)
+        if amount > self._balance:
+            raise ValueError("insufficient funds")
+        self._balance -= amount
+
 
     def get_balance(self):
-        raise NotImplementedError
+        return self._balance
 
 
 def _bank_account_case():
