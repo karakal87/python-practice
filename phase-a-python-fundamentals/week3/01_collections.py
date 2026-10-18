@@ -19,6 +19,7 @@ def top_k_words(sentence, k):
     most common first. Words are separated by spaces, all lowercase.
     Use Counter.
     Example: top_k_words('a b a c a b', 2) -> [('a', 3), ('b', 2)]."""
+    return Counter(sentence.split()).most_common(k)
     raise NotImplementedError
 
 
@@ -28,6 +29,11 @@ def group_by_length(words):
     Example: group_by_length(['hi', 'cat', 'to', 'dog'])
              -> {2: ['hi', 'to'], 3: ['cat', 'dog']}.
     (Return a plain dict at the end: dict(your_defaultdict).)"""
+    # defaultdict adds a default (in this case a blank list) to a dictionary for a key, if the dictionary is accessed with that key,
+    # and the key doesn't exist yet. so it creates key:[] pairs on the fly. 
+    len_dict = defaultdict(list) # note here how we give it a default value of list (which is a type) to do this
+    for word in words: len_dict[len(word)].append(word)
+    return len_dict
     raise NotImplementedError
 
 
@@ -35,6 +41,12 @@ def last_n(items, n):
     """Return a list of the last n items seen, using a deque with maxlen=n.
     Feed every item into the deque one at a time — don't slice.
     Example: last_n([1, 2, 3, 4, 5], 3) -> [3, 4, 5]."""
+    # its a 'double ended queue'.
+    # here its keeps the last 'n' things seen as we iterate over items
+    my_q = deque(maxlen=n)
+    for item in items:
+        my_q.append(item)
+    return list(my_q)
     raise NotImplementedError
 
 
@@ -42,6 +54,9 @@ def rotate_right(items, k):
     """Return a new list with items rotated k places to the right, using
     deque.rotate().
     Example: rotate_right([1, 2, 3, 4, 5], 2) -> [4, 5, 1, 2, 3]."""
+    my_q = deque(items)
+    my_q.rotate(k)
+    return list(my_q)
     raise NotImplementedError
 
 
