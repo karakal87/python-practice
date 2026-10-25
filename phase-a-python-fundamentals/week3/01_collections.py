@@ -68,6 +68,8 @@ def furthest_from_origin(points):
     Access coordinates by name (p.x, p.y), not by index.
     Example: furthest_from_origin([Point(1, 1), Point(3, 4), Point(0, 2)])
              -> Point(x=3, y=4)."""
+    return max(points, key=lambda p: p.x**2 + p.y**2)
+    
     raise NotImplementedError
 
 

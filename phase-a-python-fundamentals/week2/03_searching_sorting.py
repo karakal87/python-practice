@@ -67,6 +67,8 @@ def kth_largest(nums, k):
     Keep a min-heap of the k largest values seen.
     Example: kth_largest([3, 1, 4, 1, 5, 9], 2) -> 5."""
     # return sorted(nums, reverse=True)[k-1]
+    # a heap works by maintaining the smallest element at the top for a min-heap
+    # think literally of a heap; large wide at the bottom, small at the top
     largest = []
     for n in nums:
         heapq.heappush(largest, n)
